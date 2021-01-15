@@ -21,7 +21,15 @@ def creat_list(lst):
         
         task_update=update_task(task)
         task=task_update
-        print(task_update)    
+        print(task_update)   
+
+    print("Do you checking the task -> yes or no = ")
+    checking=input()
+    if checking=="yes":
+        
+        task_checking=checking_task(task)
+        
+        print(task_checking)     
 
 
 
@@ -73,5 +81,19 @@ def update_task(tasks):
             if new_state!="":
                 task['state']=bool(new_state)
     return tasks
+
+def checking_task(tasks):
+    do=0
+    do_not=0
+    task_chek={}
+    for task in tasks:
+        if task['state']==True:
+            do+=1
+        else:
+            do_not+=1
+    task_chek['do']=do
+    task_chek['do_not']=do_not
+    return  task_chek
+
 
 creat_list(todo_list)       
