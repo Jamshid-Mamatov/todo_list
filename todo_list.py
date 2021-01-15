@@ -15,6 +15,14 @@ def creat_list(lst):
         task=task_remove
         print(task_remove)
 
+    print("Do you update the task -> yes or no = ")
+    update=input()
+    if update=="yes":
+        
+        task_update=update_task(task)
+        task=task_update
+        print(task_update)    
+
 
 
 def add_task(add_lst):
@@ -46,5 +54,24 @@ def remove_task(tasks):
             task_remove.append(task)
 
     return  task_remove
+
+def update_task(tasks):
+
+    
+    for task in tasks:
+        print(f"{task}  update this task ->yes or no = ",end="")
+        update=input()
+        if update=="yes":
+            print(f"{task['text']} enter new text if you change = ",end="")
+            new_text=input()
+            if new_text!="":
+                task['text']=new_text
+
+            print(f"{task['state']} enter new text if you change False or True = ",end="")
+
+            new_state=input()
+            if new_state!="":
+                task['state']=bool(new_state)
+    return tasks
 
 creat_list(todo_list)       
