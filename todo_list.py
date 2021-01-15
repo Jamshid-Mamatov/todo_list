@@ -29,7 +29,15 @@ def creat_list(lst):
         
         task_checking=checking_task(task)
         
-        print(task_checking)     
+        print(task_checking) 
+
+    print("Do you clear the task -> yes or no = ")
+    clear=input()
+    if clear=="yes":
+
+        task_clear=clear_task(task)
+        task=task_clear
+        print(task)         
 
 
 
@@ -95,5 +103,9 @@ def checking_task(tasks):
     task_chek['do_not']=do_not
     return  task_chek
 
+def clear_task(tasks) :
+
+    tasks.clear()
+    return tasks
 
 creat_list(todo_list)       
